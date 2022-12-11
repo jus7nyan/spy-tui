@@ -1,1 +1,1 @@
-# spytui
+# Simple Python TUI
