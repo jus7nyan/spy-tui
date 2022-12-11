@@ -1,20 +1,27 @@
-import spytui
 import objects
+import spytui
+import os
 
 window = spytui.Window()
+window.set_grid(3)
+window.setName("My Window")
 
+button = objects.Button()
+label = objects.Label()
 label1 = objects.Label()
-label1.set(text="Hello", pos="center", neighbors=0, view="single", is_choise=False)
 
-label2 = objects.Label()
-label2.set(text="Привет", pos="center", neighbors=0, view="double", is_choise=True)
+def on_press(window):
+    labelf = objects.Label()
+    labelf.set(text="lalalal", pos="center", can_choise=True)
+    window.addObject(labelf)
+    
+button.set(text="hi\nbye\nhmmm",view="double", is_choise=True, pos="center", func=on_press)
+label.set(text="bye",view="double", is_choise=False, pos="right", can_choise = True)
+label1.set(text="hi",view="double", is_choise=False, pos="left", can_choise = True)
 
-label3 = objects.Label()
-label3.set(text="Охайо", pos="center", neighbors=0, view="simple", is_choise=False)
-
+window.addObject(button)
+window.addObject(label)
 window.addObject(label1)
-window.addObject(label2)
-window.addObject(label3)
 
-screen = window.render()
-window.print(screen)
+while True:
+    window.Manipulate()
